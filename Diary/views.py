@@ -26,6 +26,6 @@ def diary(req):
         }
     )
 def diary_content(req,article_id):
-    data = models.Diary.objects.filter(article_id=article_id).values("title","author__name","content","created_date")[0]
+    data = models.Diary.objects.filter(diary_id=article_id).values("title","content","created_date")[0]
     print(data)
     return render(req,"diary_content.html",{"data":data})

@@ -4,8 +4,7 @@ h3.title{
     font-family: "微软雅黑", "黑体";
     font-size: 30px;
 }
-p.author{
-
+p.time{
     text-align: center;
 }
 p.article_content{
@@ -13,4 +12,7 @@ p.article_content{
     font-size: 18px;
     color: black;
     font-family: 宋体;
+}
+p.author{
+    text-align: center;
 }

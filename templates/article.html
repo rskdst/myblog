@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-个人日记
+技术文章
 {% endblock %}
 {% block link %}
 <link href="/static/css/base.css" rel="stylesheet">
@@ -10,12 +10,12 @@
 <div class="container">
   <div class="con_content">
     <div class="about_box">
-      <h2 class="nh1"><span>您现在的位置是：<a href="/index/" target="_blank">网站首页</a>>><a href="#" target="_blank">个人日记</a></span><b>个人日记</b></h2>
+      <h2 class="nh1"><span>您现在的位置是：<a href="/index/" target="_blank">网站首页</a>>><a href="/article/" target="_blank">技术文章</a></span><b>技术文章</b></h2>
       <div class="dtxw box">
         <li>
           <div class="dttext f_l">
             <ul>
-              <h2><a href="/diary/{{ data.0.diary_id }}.html">{{ data.0.title }}</a></h2>
+              <h2><a href="/article/{{ data.0.article_id }}.html">{{ data.0.title }}</a></h2>
               <p>{{ content_list.0 }}...</p>
               <span>{{ data.0.created_date }}</span>
             </ul>
@@ -25,7 +25,7 @@
         <li>
           <div class="dttext f_l">
             <ul>
-              <h2><a href="/diary/{{ data.1.diary_id }}.html">{{ data.1.title }}</a></h2>
+              <h2><a href="/article/{{ data.1.article_id }}.html">{{ data.1.title }}</a></h2>
               <p>{{ content_list.1 }}...</p>
               <span>{{ data.1.created_date }}</span>
             </ul>
@@ -35,7 +35,7 @@
         <li>
           <div class="dttext f_l">
             <ul>
-              <h2><a href="/diary/{{ data.2.diary_id }}.html">{{ data.2.title }}</a></h2>
+              <h2><a href="/article/{{ data.2.article_id }}.html">{{ data.2.title }}</a></h2>
               <p>{{ content_list.2 }}...</p>
               <span>{{ data.2.created_date }}</span>
             </ul>
@@ -45,7 +45,7 @@
         <li>
           <div class="dttext f_l">
             <ul>
-              <h2><a href="/diary/{{ data.3.diary_id }}.html">{{ data.3.title }}</a></h2>
+              <h2><a href="/article/{{ data.3.article_id }}.html">{{ data.3.title }}</a></h2>
               <p>{{ content_list.3 }}...</p>
               <span>{{ data.3.created_date }}</span>
             </ul>
@@ -55,7 +55,7 @@
         <li>
           <div class="dttext f_l">
             <ul>
-              <h2><a href="/diary/{{ data.4.diary_id }}.html">{{ data.4.title }}</a></h2>
+              <h2><a href="/article/{{ data.4.article_id }}.html">{{ data.4.title }}</a></h2>
               <p>{{ content_list.4 }}...</p>
               <span>{{ data.4.created_date }}</span>
             </ul>
@@ -65,7 +65,7 @@
         <li>
           <div class="dttext f_l">
             <ul>
-              <h2><a href="/diary/{{ data.5.diary_id }}.html">{{ data.5.title }}</a></h2>
+              <h2><a href="/article/{{ data.5.article_id }}.html">{{ data.5.title }}</a></h2>
               <p>{{ content_list.5 }}...</p>
               <span>{{ data.5.created_date }}</span>
             </ul>
@@ -74,14 +74,14 @@
         </li>
       </div>
       <div class="pagelist">页次：1/{{ num_pages }} 每页6 总数{{ num_pages }}
-            <a href="/diary/?page=1">首页</a>
+            <a href="/article/?page=1">首页</a>
             {% if page.has_previous %}
-                <a href="/diary/?page={{ page.previous_page_number }}">上一页</a>
+                <a href="/article/?page={{ page.previous_page_number }}">上一页</a>
             {% endif %}
             {% if page.has_next %}
-                <a href="/diary/?page={{ page.next_page_number }}">下一页</a>
+                <a href="/article/?page={{ page.next_page_number }}">下一页</a>
             {% endif %}
-          <a href="/diary/?page={{ num_pages }}">尾页</a>
+          <a href="/article/?page={{ num_pages }}">尾页</a>
       </div>
     </div>
   </div>
