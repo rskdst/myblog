@@ -1,0 +1,16 @@
+h3.title{
+	text-align: center;
+    color: black;
+    font-family: "微软雅黑", "黑体";
+    font-size: 30px;
+}
+p.author{
+
+    text-align: center;
+}
+p.article_content{
+    text-align: justify;
+    font-size: 18px;
+    color: black;
+    font-family: 宋体;
+}

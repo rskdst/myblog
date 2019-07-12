@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+个人日记
+{% endblock %}
+{% block link %}
+<link href="/static/css/base.css" rel="stylesheet">
+<link href="/static/css/main.css" rel="stylesheet">
+<link href="/static/css/content.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="con_content">
+    <div class="about_box">
+      <h2 class="nh1"><span>您现在的位置是：<a href="/index/" target="_blank">网站首页</a>>><a href="#" target="_blank">个人日记</a></span><b>个人日记</b></h2>
+      <div class="dtxw box">
+          <h3 class="title">{{ data.title }}</h3>
+          <p class="author">作者：{{ data.author__name }}&nbsp;&nbsp;{{ data.created_date }}</p>
+          <p class="article_content">{{ data.content }}</p>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
