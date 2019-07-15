@@ -13,42 +13,42 @@
   <h3><a href="/article/{{ article.0.article_id }}.html/">{{ article.0.title }}</a></h3>
   <figure><img src="/static/images/img_1.jpg" alt="{{ article.0.title }}"></figure>
   <ul>
-    <p> {{ article_content1 }}···</p>
+    <p> {{ article.0.description | safe }}</p>
     <a title="{{ article.0.title }}" href="/article/{{ article.0.article_id }}.html/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
   <p class="dateview"><span>{{ article.0.update_date }}</span><span>作者：{{ article.0.author__name }}</span><span>个人博客：[<a href="/article/">技术文章</a>]</span></p>
   <h3><a href="/article/{{ article.1.article_id }}.html/">{{ article.1.title }}</a></h3>
   <figure><img src="/static/images/img_2.jpg" alt="{{ article.1.title }}"></figure>
   <ul>
-    <p>{{ article_content2 }}···</p>
+    <p>{{ article.1.description | safe }}</p>
     <a title="{{ article.1.title }}" href="/article/{{ article.1.article_id }}.html/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
   <p class="dateview"><span>{{ article.1.update_date }}</span><span>作者：{{ article.1.author__name }}</span><span>个人博客：[<a href="/article/">技术文章</a>]</span></p>
   <h3><a href="/diary/studydiary/{{ study_diary.0.diary_id }}.html/">{{ study_diary.0.title }}</a></h3>
   <figure><img src="/static/images/img_3.jpg" alt="{{ study_diary.0.title }}"></figure>
   <ul>
-    <p>{{ study_diary_content1 }}···</p>
+    <p>{{ study_diary.0.description | safe }}</p>
     <a title="{{ study_diary.0.title }}" href=/diary/studydiary/{{ study_diary.0.diary_id }}.html/ target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
   <p class="dateview"><span>{{ study_diary.0.update_date }}</span><span>作者：刘敬</span><span>个人博客：[<a href="/diary/studydiary/">学习笔记</a>]</span></p>
   <h3><a href="/diary/studydiary/{{ study_diary.1.diary_id }}.html/">{{ study_diary.1.title }}</a></h3>
   <figure><img src="/static/images/img_4.jpg" alt="{{ study_diary.1.title }}"></figure>
   <ul>
-    <p>{{ study_diary_content2 }}···</p>
+    <p>{{ study_diary.1.description | safe }}</p>
     <a title="{{ study_diary.1.title }}" href="/diary/studydiary/{{ study_diary.1.diary_id }}.html/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
   <p class="dateview"><span>{{ study_diary.1.update_date }}</span><span>作者：刘敬</span><span>个人博客：[<a href="/diary/studydiary/">学习笔记</a>]</span></p>
   <h3><a href="/article/{{ article.2.article_id }}.html/">{{ article.2.title }}</a></h3>
   <figure><img src="/static/images/img_1.jpg" alt="{{ article.2.title }}"></figure>
   <ul>
-    <p> {{ article_content3 }}···</p>
+    <p> {{ article.2.description | safe}}</p>
     <a title="{{ article.2.title }}" href="/article/{{ article.2.article_id }}.html/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
   <p class="dateview"><span>{{ article.2.update_date }}</span><span>作者：{{ article.2.author__name }}</span><span>个人博客：[<a href="/article/">技术文章</a>]</span></p>
   <h3><a href="/diary/{{ diary.diary_id }}.html/">{{ diary.title }}</a></h3>
   <figure><img src="/static/images/img_2.jpg" alt="{{ diary.title }}"></figure>
   <ul>
-    <p>{{ diary_content }}···</p>
+    <p>{{ diary.description | safe }}</p>
     <a title="{{ diary.title }}" href="/diary/{{ diary.diary_id }}.html/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
   <p class="dateview"><span>{{ diary.update_date }}</span><span>作者：刘敬</span><span>个人博客：[<a href="/diary/">个人日记</a>]</span></p>

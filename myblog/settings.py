@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "Diary",
     "Article",
+    "ckeditor",
+    "ckeditor_uploader",
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,35 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static"),
 )
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR,"static")
+
+CKEDITOR_UPLOAD_PATH = "static/upload"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': (['div', 'Source', '-', 'Save', 'NewPage', 'Preview', '-', 'Templates'],
+                    ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Print', 'SpellChecker', 'Scayt'],
+                    ['Undo', 'Redo', '-', 'Find', 'Replace', '-', 'SelectAll', 'RemoveFormat', '-', 'Maximize',
+                     'ShowBlocks', '-', "CodeSnippet", 'Subscript', 'Superscript'],
+                    ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
+                     'HiddenField'],
+                    ['Bold', 'Italic', 'Underline', 'Strike', '-'],
+                    ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'],
+                    ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+                    ['Link', 'Unlink', 'Anchor'],
+                    ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'],
+                    ['Styles', 'Format', 'Font', 'FontSize'],
+                    ['TextColor', 'BGColor'],
+
+                    ),
+        'extraPlugins': ','.join(['codesnippet','uploadimage','prism','widget','lineutils',]),
+    }
+}
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         ...
+#         # 添加 Prism 相关插件
+#         'extraPlugins': ','.join(['codesnippet', 'prism', 'widget', 'lineutils']),
+#     }
+# }

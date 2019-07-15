@@ -3,8 +3,17 @@
 技术文章
 {% endblock %}
 {% block link %}
+<link href="/static/css/index.css" rel="stylesheet">
 <link href="/static/css/base.css" rel="stylesheet">
 <link href="/static/css/main.css" rel="stylesheet">
+    <style type="text/css">
+        .dateview span{
+            text-align: left;
+            float: left;
+            padding-left: 80px;
+
+        }
+    </style>
 {% endblock %}
 {% block content %}
 <div class="container">
@@ -16,9 +25,9 @@
           <div class="dttext f_l">
             <ul>
               <h2><a href="/article/{{ data.0.article_id }}.html">{{ data.0.title }}</a></h2>
-              <p>{{ content_list.0 }}···</p>
-              <span>{{ data.0.created_date }}</span>
+              <p>{{ data.0.description | safe }}</p>
             </ul>
+            <p class="dateview"><span style="padding-left: 0px">{{ data.0.update_date }}</span><span>作者：{{ data.0.author.name }}</span><span>个人博客：[<a href="/article/">{{ data.0.type }}</a>]</span></p>
           </div>
           <div class="xwpic f_r"><a href="/"><img src="/static/images/02.jpg"></a></div>
         </li>
@@ -26,9 +35,9 @@
           <div class="dttext f_l">
             <ul>
               <h2><a href="/article/{{ data.1.article_id }}.html">{{ data.1.title }}</a></h2>
-              <p>{{ content_list.1 }}···</p>
-              <span>{{ data.1.created_date }}</span>
+              <p>{{ data.1.description | safe }}</p>
             </ul>
+            <p class="dateview"><span style="padding-left: 0px">{{ data.1.update_date }}</span><span>作者：{{ data.1.author.name }}</span><span>个人博客：[<a href="/article/">{{ data.1.type }}</a>]</span></p>
           </div>
           <div class="xwpic f_r"><a href="/"><img src="/static/images/01.jpg"></a></div>
         </li>
@@ -36,9 +45,9 @@
           <div class="dttext f_l">
             <ul>
               <h2><a href="/article/{{ data.2.article_id }}.html">{{ data.2.title }}</a></h2>
-              <p>{{ content_list.2 }}···</p>
-              <span>{{ data.2.created_date }}</span>
+              <p>{{ data.2.description | safe }}</p>
             </ul>
+            <p class="dateview"><span style="padding-left: 0px">{{ data.2.update_date }}</span><span>作者：{{ data.2.author.name }}</span><span>个人博客：[<a href="/article/">{{ data.2.type }}</a>]</span></p>
           </div>
           <div class="xwpic f_r"><a href="/"><img src="/static/images/03.jpg"></a></div>
         </li>
@@ -46,9 +55,9 @@
           <div class="dttext f_l">
             <ul>
               <h2><a href="/article/{{ data.3.article_id }}.html">{{ data.3.title }}</a></h2>
-              <p>{{ content_list.3 }}···</p>
-              <span>{{ data.3.created_date }}</span>
+              <p>{{ data.3.description | safe }}</p>
             </ul>
+            <p class="dateview"><span style="padding-left: 0px">{{ data.3.update_date }}</span><span>作者：{{data.3.author.name }}</span><span>个人博客：[<a href="/article/">{{ data.3.type }}</a>]</span></p>
           </div>
           <div class="xwpic f_r"><a href="/"><img src="/static/images/04.jpg"></a></div>
         </li>
@@ -56,9 +65,9 @@
           <div class="dttext f_l">
             <ul>
               <h2><a href="/article/{{ data.4.article_id }}.html">{{ data.4.title }}</a></h2>
-              <p>{{ content_list.4 }}···</p>
-              <span>{{ data.4.created_date }}</span>
+              <p>{{ data.4.description | safe }}</p>
             </ul>
+            <p class="dateview"><span style="padding-left: 0px">{{ data.4.update_date }}</span><span>作者：{{ data.4.author.name }}</span><span>个人博客：[<a href="/article/">{{ data.4.type }}</a>]</span></p>
           </div>
           <div class="xwpic f_r"><a href="/"><img src="/static/images/02.jpg"></a></div>
         </li>
@@ -66,9 +75,9 @@
           <div class="dttext f_l">
             <ul>
               <h2><a href="/article/{{ data.5.article_id }}.html">{{ data.5.title }}</a></h2>
-              <p>{{ content_list.5 }}···</p>
-              <span>{{ data.5.created_date }}</span>
+              <p>{{ data.5.description | safe }}</p>
             </ul>
+            <p class="dateview"><span style="padding-left: 0px">{{ data.5.update_date }}</span><span>作者：{{ data.5.author.name }}</span><span>个人博客：[<a href="/article/">{{ data.5.type }}</a>]</span></p>
           </div>
           <div class="xwpic f_r"><a href="/"><img src="/static/images/06.jpg"></a></div>
         </li>

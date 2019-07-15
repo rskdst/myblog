@@ -12,9 +12,7 @@ def article(req):
     paginator = Paginator(all_data, 6)
     num_pages = paginator.num_pages
     page = paginator.page(current_page)
-    for i in data:
-        print(i.content)
-        content_lst.append(i.content[0:30])
+    print(data[0].author.name)
     return render(
         req,
         "article.html",

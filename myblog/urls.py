@@ -24,4 +24,5 @@ urlpatterns = [
     re_path(r'^diary/',include("Diary.urls")),
     re_path(r'^article/',include("Article.urls")),
     path('search/', views.search),
+    path('ckeditor/',include('ckeditor_uploader.urls')),
 ]

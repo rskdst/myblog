@@ -3,9 +3,9 @@
 个人日记
 {% endblock %}
 {% block link %}
+<link href="/static/css/content.css" rel="stylesheet">
 <link href="/static/css/base.css" rel="stylesheet">
 <link href="/static/css/main.css" rel="stylesheet">
-<link href="/static/css/content.css" rel="stylesheet">
 {% endblock %}
 {% block content %}
 <div class="container">
@@ -15,7 +15,9 @@
       <div class="dtxw box">
           <h3 class="title">{{ data.title }}</h3>
           <p class="time">{{ data.created_date }}</p>
-          <p class="article_content">{{ data.content }}</p>
+          <div class="article_content">
+              {{ data.content | safe }}
+          </div>
 
       </div>
     </div>

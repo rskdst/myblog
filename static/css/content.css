@@ -6,8 +6,11 @@ h3.title{
 }
 p.time{
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-p.article_content{
+
+.article_content{
     text-align: justify;
     font-size: 18px;
     color: black;
@@ -15,4 +18,6 @@ p.article_content{
 }
 p.author{
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
