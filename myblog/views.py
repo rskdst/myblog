@@ -22,9 +22,9 @@ def newslistpic(req):
 def search(req):
     data_list = []
     keyword = req.GET.get("keyboard")
-    diary = Diary.objects.filter(title__contains=keyword).order_by("-update_date").values("title","content","article_id","update_date")
-    study_diary = StudyDiary.objects.filter(title__contains=keyword).order_by("-update_date").values("title","content","article_id","update_date")
-    article = Article.objects.filter(title__contains=keyword).order_by("-update_date").values("article_id","title","content","update_date","author__name")
+    diary = Diary.objects.filter(title__contains=keyword).order_by("-update_date").values("title","description","article_id","update_date")
+    study_diary = StudyDiary.objects.filter(title__contains=keyword).order_by("-update_date").values("title","description","article_id","update_date")
+    article = Article.objects.filter(title__contains=keyword).order_by("-update_date").values("article_id","title","description","update_date","author__name")
     for d in diary:
         if d:
             data_list.append(d)
