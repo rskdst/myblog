@@ -28,11 +28,17 @@
             <li>
                 <div class="dttext f_l">
                     <ul>
-                        <h2><a href="/diary/{{ data.article_id }}.html">{{ data.title }}</a></h2>
+                        {% if data.type == "技术文章" %}
+                            <h2><a href="/article/{{ data.article_id }}.html">{{ data.title }}</a></h2>
+                        {% elif data.type == "个人日记" %}
+                            <h2><a href="/diary/{{ data.article_id }}.html">{{ data.title }}</a></h2>
+                        {% else %}
+                            <h2><a href="/diary/studydiary/{{ data.article_id }}.html">{{ data.title }}</a></h2>
+                        {% endif %}
                         <p>{{ data.description | safe }}</p>
                     </ul>
                     {% if data.author__name %}
-                        <p class="dateview"><span style="padding-left: 0px">{{ data.update_date }}</span><span>作者：{{ data.author__name }}</span><span>个人博客：[<a href="/article/">技术文章</a>]</span></p>
+                        <p class="dateview"><span style="padding-left: 0px">{{ data.update_date }}</span><span>作者：{{ data.author__name }}</span><span>个人博客：[<a href="/article/">{{ data.type }}</a>]</span></p>
                     {% else %}
                         <p class="dateview"><span style="padding-left: 0px">{{ data.update_date }}</span><span>作者：刘敬</span><span>个人博客：[<a href="/article/">技术文章</a>]</span></p>
                     {% endif %}
