@@ -10,48 +10,48 @@
   <div class="jztop"></div>
   <div class="container">
 <div class="bloglist f_l">
-  <h3><a href="/article/content/">【心路历程】请不要在设计这条路上徘徊啦</a></h3>
-  <figure><img src="/static/images/img_1.jpg" alt="【心路历程】请不要在设计这条路上徘徊啦"></figure>
+  <h3><a href="/article/{{ article.0.article_id }}.html/">{{ article.0.title }}</a></h3>
+  <figure><img src="/static/images/img_1.jpg" alt="{{ article.0.title }}"></figure>
   <ul>
-    <p> 我整理了一下网友给我的来信，如果你还在踌躇不前，不妨来看看，到底要不要坚持下去！我也欢迎大家给我来信，希望能帮到更多人。</p>
-    <a title="【心路历程】请不要在设计这条路上徘徊啦" href="/article/content/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+    <p> {{ article_content1 }}···</p>
+    <a title="{{ article.0.title }}" href="/article/{{ article.0.article_id }}.html/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
-  <p class="dateview"><span>2017-07-13</span><span>作者：</span><span>个人博客：[<a href="/jstt/bj/">心得笔记</a>]</span></p>
-  <h3><a href="/jstt/bj/2015-01-09/740.html">【匆匆那些年】总结个人博客经历的这四年…</a></h3>
-  <figure><img src="/static/images/img_2.jpg" alt="【匆匆那些年】总结个人博客经历的这四年…"></figure>
+  <p class="dateview"><span>{{ article.0.update_date }}</span><span>作者：{{ article.0.author__name }}</span><span>个人博客：[<a href="/article/">技术文章</a>]</span></p>
+  <h3><a href="/article/{{ article.1.article_id }}.html/">{{ article.1.title }}</a></h3>
+  <figure><img src="/static/images/img_2.jpg" alt="{{ article.1.title }}"></figure>
   <ul>
-    <p>博客从最初的域名购买，到上线已经有四年的时间了，这四年的时间，有笑过，有怨过，有悔过，有执着过，也有放弃过…但最后还是坚持了下来，时间如此匆匆，等再回过头已来不及去弥补</p>
-    <a title="【匆匆那些年】总结个人博客经历的这四年…" href="/jstt/bj/2015-01-09/740.html" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+    <p>{{ article_content2 }}···</p>
+    <a title="{{ article.1.title }}" href="/article/{{ article.1.article_id }}.html/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
-  <p class="dateview"><span>2015-01-09</span><span>作者：杨青</span><span>个人博客：[<a href="/jstt/bj/">心得笔记</a>]</span></p>
-  <h3><a href="/jstt/bj/2014-11-06/732.html">分享我的个人博客访问量如何做到IP从10到600的(图文)</a></h3>
-  <figure><img src="/static/images/img_3.jpg" alt="分享我的个人博客访问量如何做到IP从10到600的(图文)"></figure>
+  <p class="dateview"><span>{{ article.1.update_date }}</span><span>作者：{{ article.1.author__name }}</span><span>个人博客：[<a href="/article/">技术文章</a>]</span></p>
+  <h3><a href="/diary/studydiary/{{ study_diary.0.diary_id }}.html/">{{ study_diary.0.title }}</a></h3>
+  <figure><img src="/static/images/img_3.jpg" alt="{{ study_diary.0.title }}"></figure>
   <ul>
-    <p>我的个人博客总共展示了三个版本，界面也经历了由“简单”到“复杂”再到“简单”，颜色从“色泽单一”到“五彩斑斓”再到“局部点缀”的过程。原来一年一个版本！而每次改版的契机都是被百度惩罚！界面不要频繁更换！好好检查代码，有没有冗余、结构有没有不合理的地方。</p>
-    <a title="分享我的个人博客访问量如何做到IP从10到600的(图文)" href="/jstt/bj/2014-11-06/732.html" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+    <p>{{ study_diary_content1 }}···</p>
+    <a title="{{ study_diary.0.title }}" href=/diary/studydiary/{{ study_diary.0.diary_id }}.html/ target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
-  <p class="dateview"><span>2014-11-06</span><span>作者：杨青</span><span>个人博客：[<a href="/jstt/bj/">心得笔记</a>]</span></p>
-  <h3><a href="/jstt/bj/2014-10-18/731.html">帝国cms常用标签调用方法总结（不得不收藏哦）</a></h3>
-  <figure><img src="/static/images/img_4.jpg" alt="帝国cms常用标签调用方法总结（不得不收藏哦）"></figure>
+  <p class="dateview"><span>{{ study_diary.0.update_date }}</span><span>作者：刘敬</span><span>个人博客：[<a href="/diary/studydiary/">学习笔记</a>]</span></p>
+  <h3><a href="/diary/studydiary/{{ study_diary.1.diary_id }}.html/">{{ study_diary.1.title }}</a></h3>
+  <figure><img src="/static/images/img_4.jpg" alt="{{ study_diary.1.title }}"></figure>
   <ul>
-    <p>整理了一些常用的帝国cms调用，灵动标签和万能标签的调用方法举例。幻灯片、标题、一级栏目、二级栏目、带模版的友情链接（下拉菜单）、判断内容页字段为空时是如何调用的等等...新手可以借鉴学习。</p>
-    <a title="帝国cms常用标签调用方法总结（不得不收藏哦）" href="/jstt/bj/2014-10-18/731.html" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+    <p>{{ study_diary_content2 }}···</p>
+    <a title="{{ study_diary.1.title }}" href="/diary/studydiary/{{ study_diary.1.diary_id }}.html/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
-  <p class="dateview"><span>2015-01-09</span><span>作者：杨青</span><span>个人博客：[<a href="/jstt/bj/">心得笔记</a>]</span></p>
-  <h3><a href="/jstt/bj/2017-07-13/784.html">【心路历程】请不要在设计这条路上徘徊啦</a></h3>
-  <figure><img src="/static/images/img_1.jpg" alt="【心路历程】请不要在设计这条路上徘徊啦"></figure>
+  <p class="dateview"><span>{{ study_diary.1.update_date }}</span><span>作者：刘敬</span><span>个人博客：[<a href="/diary/studydiary/">学习笔记</a>]</span></p>
+  <h3><a href="/article/{{ article.2.article_id }}.html/">{{ article.2.title }}</a></h3>
+  <figure><img src="/static/images/img_1.jpg" alt="{{ article.2.title }}"></figure>
   <ul>
-    <p> 我整理了一下网友给我的来信，如果你还在踌躇不前，不妨来看看，到底要不要坚持下去！我也欢迎大家给我来信，希望能帮到更多人。</p>
-    <a title="【心路历程】请不要在设计这条路上徘徊啦" href="/jstt/bj/2017-07-13/784.html" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+    <p> {{ article_content3 }}···</p>
+    <a title="{{ article.2.title }}" href="/article/{{ article.2.article_id }}.html/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
-  <p class="dateview"><span>2017-07-13</span><span>作者：</span><span>个人博客：[<a href="/jstt/bj/">心得笔记</a>]</span></p>
-  <h3><a href="/jstt/bj/2015-01-09/740.html">【匆匆那些年】总结个人博客经历的这四年…</a></h3>
-  <figure><img src="/static/images/img_2.jpg" alt="【匆匆那些年】总结个人博客经历的这四年…"></figure>
+  <p class="dateview"><span>{{ article.2.update_date }}</span><span>作者：{{ article.2.author__name }}</span><span>个人博客：[<a href="/article/">技术文章</a>]</span></p>
+  <h3><a href="/diary/{{ diary.diary_id }}.html/">{{ diary.title }}</a></h3>
+  <figure><img src="/static/images/img_2.jpg" alt="{{ diary.title }}"></figure>
   <ul>
-    <p>博客从最初的域名购买，到上线已经有四年的时间了，这四年的时间，有笑过，有怨过，有悔过，有执着过，也有放弃过…但最后还是坚持了下来，时间如此匆匆，等再回过头已来不及去弥补</p>
-    <a title="【匆匆那些年】总结个人博客经历的这四年…" href="/jstt/bj/2015-01-09/740.html" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+    <p>{{ diary_content }}···</p>
+    <a title="{{ diary.title }}" href="/diary/{{ diary.diary_id }}.html/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
   </ul>
-  <p class="dateview"><span>2015-01-09</span><span>作者：杨青</span><span>个人博客：[<a href="/jstt/bj/">心得笔记</a>]</span></p>
+  <p class="dateview"><span>{{ diary.update_date }}</span><span>作者：刘敬</span><span>个人博客：[<a href="/diary/">个人日记</a>]</span></p>
 </div>
 <div class="r_box f_r">
   <div class="tit01">

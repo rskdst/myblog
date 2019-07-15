@@ -7,8 +7,8 @@ def article(req):
     current_page = int(req.GET.get("page", 1))
     start_content = (current_page - 1) * 6
     stop_content = current_page * 6
-    all_data = models.Article.objects.all()
-    data = models.Article.objects.all()[start_content:stop_content]
+    all_data = models.Article.objects.order_by("-update_date")
+    data = all_data[start_content:stop_content]
     paginator = Paginator(all_data, 6)
     num_pages = paginator.num_pages
     page = paginator.page(current_page)
