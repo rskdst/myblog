@@ -1,11 +1,12 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from Article.models import *
 from Diary.models import *
 
 def index(req):
-    diary = Diary.objects.order_by("-update_date").values("title","content","diary_id","update_date").first()
+    diary = Diary.objects.order_by("-update_date").values("title","content","article_id","update_date").first()
     diary_content = diary["content"][:30]
-    study_diary = StudyDiary.objects.order_by("-update_date").values("title","content","diary_id","update_date")[:2]
+    study_diary = StudyDiary.objects.order_by("-update_date").values("title","content","article_id","update_date")[:2]
     study_diary_content1 = study_diary[0]["content"][:30]
     study_diary_content2 = study_diary[1]["content"][:30]
     article = Article.objects.order_by("-update_date").values("article_id","title","content","update_date","author__name")[:3]
@@ -23,3 +24,28 @@ def listpic(req):
 
 def newslistpic(req):
     return render(req,"diary.html")
+
+def search(req):
+    data_list = []
+    keyword = req.GET.get("keyboard")
+    diary = Diary.objects.filter(title__contains=keyword).order_by("-update_date").values("title","content","article_id","update_date")
+    study_diary = StudyDiary.objects.filter(title__contains=keyword).order_by("-update_date").values("title","content","article_id","update_date")
+    article = Article.objects.filter(title__contains=keyword).order_by("-update_date").values("article_id","title","content","update_date","author__name")
+    for d in diary:
+        if d:
+            data_list.append(d)
+        else:
+            pass
+    for s in study_diary:
+        if s:
+            data_list.append(s)
+        else:
+            pass
+    for a in article:
+        if a:
+            data_list.append(a)
+        else:
+            pass
+    # print(data_list)
+    return render(req,"search.html",{"data_list":data_list})
+

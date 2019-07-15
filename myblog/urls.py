@@ -23,4 +23,5 @@ urlpatterns = [
     path('listpic/',views.listpic),
     re_path(r'^diary/',include("Diary.urls")),
     re_path(r'^article/',include("Article.urls")),
+    path('search/', views.search),
 ]

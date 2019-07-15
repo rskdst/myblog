@@ -28,9 +28,9 @@ def diary(req):
 def diary_content(req,article_id):
     print(article_id)
     if article_id.startswith("3"):
-        data = models.StudyDiary.objects.filter(diary_id=article_id).values("title","content","created_date")[0]
+        data = models.StudyDiary.objects.filter(article_id=article_id).values("title","content","created_date")[0]
     else:
-        data = models.Diary.objects.filter(diary_id=article_id).values("title", "content", "created_date")[0]
+        data = models.Diary.objects.filter(article_id=article_id).values("title", "content", "created_date")[0]
     print(data)
     return render(req,"diary_content.html",{"data":data})
 
