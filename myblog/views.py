@@ -41,5 +41,5 @@ def search(req):
         else:
             pass
     # print(data_list)
-    return render(req,"search.html",{"data_list":data_list})
+    return render(req,"search.html",{"data_list":data_list,"keyword":keyword})
 

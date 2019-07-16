@@ -3,18 +3,24 @@
 个人日记
 {% endblock %}
 {% block link %}
-<link href="/static/css/content.css" rel="stylesheet">
+{#<link href="/static/css/content.css" rel="stylesheet">#}
 <link href="/static/css/base.css" rel="stylesheet">
 <link href="/static/css/main.css" rel="stylesheet">
+<link href="/static/css/content.css" rel="stylesheet">
 {% endblock %}
 {% block content %}
 <div class="container">
   <div class="con_content">
     <div class="about_box">
-      <h2 class="nh1"><span>您现在的位置是：<a href="/index/" target="_blank">网站首页</a>>><a href="#" target="_blank">个人日记</a></span><b>个人日记</b></h2>
+        {% if data.type == "个人日记" %}
+            <h2 class="nh1"><span>您现在的位置是：<a href="/index/" target="_blank">网站首页</a>>><a href="#" target="_blank">个人日记</a></span><b>个人日记</b></h2>
+        {% else %}
+            <h2 class="nh1"><span>您现在的位置是：<a href="/index/" target="_blank">网站首页</a>>><a href="#" target="_blank">学习笔记</a></span><b>学习笔记</b></h2>
+        {% endif %}
       <div class="dtxw box">
           <h3 class="title">{{ data.title }}</h3>
           <p class="time">{{ data.created_date }}</p>
+          <<HR style="margin: 15px" >
           <div class="article_content">
               {{ data.content | safe }}
           </div>

@@ -1,8 +1,16 @@
-{% extends "base.html" %}
-{% block title %}
-搜索结果
-{% endblock %}
-{% block link %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf8">
+<title>
+    搜索结果
+</title>
+<meta name="keywords" content="刘敬的个人博客" />
+<meta name="description" content="刘敬的个人博客" />
+<script src="/static/ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js"></script>
+<link rel="stylesheet" href="/static/css/prism.css">
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script src="/static/js/modernizr.js"></script>
 <link href="/static/css/base.css" rel="stylesheet">
 <link href="/static/css/index.css" rel="stylesheet">
 <link href="/static/css/main.css" rel="stylesheet">
@@ -16,44 +24,108 @@
     }
 </style>
 
-{% endblock %}
-{% block content %}
-<div class="container">
-  <div class="con_content">
-    <div class="about_box">
-      <h2 class="nh1"><span>您现在的位置是：<a href="/index/" target="_blank">网站首页</a>>><a href="" target="_blank">搜索结果</a></span><b>搜索结果</b></h2>
-      <div class="dtxw box">
-        {% if data_list %}
-          {% for data in data_list %}
-            <li>
-                <div class="dttext f_l">
-                    <ul>
-                        {% if data.type == "技术文章" %}
-                            <h2><a href="/article/{{ data.article_id }}.html">{{ data.title }}</a></h2>
-                        {% elif data.type == "个人日记" %}
-                            <h2><a href="/diary/{{ data.article_id }}.html">{{ data.title }}</a></h2>
-                        {% else %}
-                            <h2><a href="/diary/studydiary/{{ data.article_id }}.html">{{ data.title }}</a></h2>
-                        {% endif %}
-                        <p>{{ data.description | safe }}</p>
-                    </ul>
-                    {% if data.author__name %}
-                        <p class="dateview"><span style="padding-left: 0px">{{ data.update_date }}</span><span>作者：{{ data.author__name }}</span><span>个人博客：[<a href="/article/">{{ data.type }}</a>]</span></p>
-                    {% else %}
-                        <p class="dateview"><span style="padding-left: 0px">{{ data.update_date }}</span><span>作者：刘敬</span><span>个人博客：[<a href="/article/">技术文章</a>]</span></p>
-                    {% endif %}
-                </div>
-                <div class="xwpic f_r"><a href="/"><img src="/static/images/02.jpg"></a></div>
-            </li>
-          {% endfor %}
-        {% else %}
-            <p>
-                抱歉，您搜索的结果不存在
-            </p>
-        {% endif %}
+</head>
+<body>
+<div class="topnav">
+</div>
+<div id="wrapper">
+  <header>
+    <div class="headtop"></div>
+    <div class="contenttop">
+      <div class="logo f_l">刘敬的个人博客</div>
+      <div class="search f_r">
+        <form action="/search/" method="get" name="searchform" id="searchform">
+          <input name="keyboard" id="keyboard" class="input_text" value="{{ keyword }}" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+          <input class="input_submit" value="搜索" type="submit">
+        </form>
       </div>
-    </div>
-  </div>
+      <div class="blank"></div>
+      <nav>
+        <div  class="navigation">
+          <ul class="menu">
+            <li><a href="/index/">网站首页</a></li>
+            <li><a href="#">关于我</a>
+              <ul>
+                <li><a href="/about/">个人简介</a></li>
+                <li><a href="/listpic/">个人相册</a></li>
+              </ul>
+            </li>
+            <li><a href="/diary/">我的日记</a>
+              <ul>
+                <li><a href="/diary/">个人日记</a></li>
+                <li><a href="/diary/studydiary">学习笔记</a></li>
+              </ul>
+            </li>
+            <li><a href="/article/">技术文章</a> </li>
+            <li><a href="#">给我留言</a> </li>
+          </ul>
+        </div>
+      </nav>
+      <SCRIPT type=text/javascript>
+	// Navigation Menu
+	$(function() {
+		$(".menu ul").css({display: "none"}); // Opera Fix
+		$(".menu li").hover(function(){
+			$(this).find('ul:first').css({visibility: "visible",display: "none"}).slideDown("normal");
+		},function(){
+			$(this).find('ul:first').css({visibility: "hidden"});
+		});
+	});
+
+    </SCRIPT>
+</div>
+  </header>
+    <div class="container">
+      <div class="con_content">
+        <div class="about_box">
+          <h2 class="nh1"><span>您现在的位置是：<a href="/index/" target="_blank">网站首页</a>>><a href="" target="_blank">搜索结果</a></span><b>搜索结果</b></h2>
+          <div class="dtxw box">
+            {% if data_list %}
+              {% for data in data_list %}
+                <li>
+                    <div class="dttext f_l">
+                        <ul>
+                            {% if data.type == "技术文章" %}
+                                <h2><a href="/article/{{ data.article_id }}.html">{{ data.title }}</a></h2>
+                            {% elif data.type == "个人日记" %}
+                                <h2><a href="/diary/{{ data.article_id }}.html">{{ data.title }}</a></h2>
+                            {% else %}
+                                <h2><a href="/diary/studydiary/{{ data.article_id }}.html">{{ data.title }}</a></h2>
+                            {% endif %}
+                            <p>{{ data.description | safe }}</p>
+                        </ul>
+                        {% if data.author__name %}
+                            <p class="dateview"><span style="padding-left: 0px">{{ data.update_date }}</span><span>作者：{{ data.author__name }}</span><span>个人博客：[<a href="/article/">{{ data.type }}</a>]</span></p>
+                        {% else %}
+                            <p class="dateview"><span style="padding-left: 0px">{{ data.update_date }}</span><span>作者：刘敬</span><span>个人博客：[<a href="/article/">技术文章</a>]</span></p>
+                        {% endif %}
+                    </div>
+                    <div class="xwpic f_r"><a href="/"><img src="/static/images/02.jpg"></a></div>
+                </li>
+              {% endfor %}
+            {% else %}
+                <p>
+                    抱歉，您搜索的结果不存在
+                </p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
   <div class="blank"></div>
   <!-- container代码 结束 -->
-{% endblock %}
+
+  <!-- container代码 结束 -->
+  <div class="jzend"></div>
+  <footer>
+    <div class="footer">
+      <div class="f_l">
+        <p>All Rights Reserved 版权所有：<a href="http://www.yangqq.com">杨青个人博客</a> 备案号：蜀ICP备00000000号</p>
+      </div>
+      <div class="f_r textr">
+        <p>Design by DanceSmile</p>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

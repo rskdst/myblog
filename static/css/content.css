@@ -11,10 +11,15 @@ p.time{
 }
 
 .article_content{
+    padding-left: 17px;
+    padding-right: 17px;
+    letter-spacing: 3px;
+    line-height: 1.5mem;
     text-align: justify;
-    font-size: 18px;
+    font-size: 16px;
     color: black;
-    font-family: 宋体;
+    font-family: "Times New Roman";
+
 }
 p.author{
     text-align: center;

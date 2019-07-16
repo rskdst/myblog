@@ -12,7 +12,6 @@ def article(req):
     paginator = Paginator(all_data, 6)
     num_pages = paginator.num_pages
     page = paginator.page(current_page)
-    print(data[0].author.name)
     return render(
         req,
         "article.html",
@@ -28,7 +27,6 @@ def article(req):
 
 def article_content(req,article_id):
     data = models.Article.objects.filter(article_id=article_id).values("title","author__name","content","created_date")[0]
-    print(data)
     return render(
         req,
         "article_content.html",

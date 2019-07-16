@@ -47,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -160,10 +160,4 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': ','.join(['codesnippet','uploadimage','prism','widget','lineutils',]),
     }
 }
-# CKEDITOR_CONFIGS = {
-#     'default': {
-#         ...
-#         # 添加 Prism 相关插件
-#         'extraPlugins': ','.join(['codesnippet', 'prism', 'widget', 'lineutils']),
-#     }
-# }
+
