@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "Diary",
     "Article",
+    "Userinfo",
     "ckeditor",
     "ckeditor_uploader",
 ]

@@ -29,6 +29,8 @@
 <div class="topnav">
 </div>
 <div id="wrapper">
+<a class="register" href="/register/"><span style="color: white">注册</span></a>
+<a class="login" href="/login/"><span style="color: white">登录</span></a>
   <header>
     <div class="headtop"></div>
     <div class="contenttop">
@@ -69,6 +71,11 @@
 			$(this).find('ul:first').css({visibility: "visible",display: "none"}).slideDown("normal");
 		},function(){
 			$(this).find('ul:first').css({visibility: "hidden"});
+		});
+		$("a span").hover(function () {
+            $(this).css({"color":"red"});
+        },function () {
+            $(this).css({"color":"white"});
 		});
 	});
 

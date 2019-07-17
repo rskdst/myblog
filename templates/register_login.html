@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎来到刘敬的博客</title>
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <style type="text/css">
+        ul{
+            display: inline;
+        }
+        li{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body style="background: url(/static/images/bg.jpg) repeat">
+    {% if url == "/login/" %}
+        <div style="margin-left: 40%;margin-top: 17%">
+            <form method="post" action="/login/" novalidate>
+                {% csrf_token %}
+                <table >
+                    <tr>
+                        <th>{{ form.username.label }}:</th>
+                        <td>{{ form.username }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ form.password.label }}:</th>
+                        <td>{{ form.password }}</td>
+                    </tr>
+                </table>
+                <p style="margin-left: 60px">{{ error }}</p>
+                <input style="margin-left: 12%" type="submit" value="登录">
+                <a style="margin-left: 30px" href="/register/"><span style="color: blue">注册</span></a>
+            </form>
+        </div>
+    {% else %}
+        <div style="margin-left: 40%;margin-top: 15%">
+            <form method="post" action="/register/" novalidate>
+                {% csrf_token %}
+                <table >
+                    {% for field in form %}
+                    <tr>
+                        <th>{{ field.label }}:</th>
+                        <td>{{ field }}</td>
+                        <td>{{ field.errors.0 }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <input style="margin-left: 12%" type="submit" value="注册">
+                <a style="margin-left: 30px" href="/login/"><span style="color: blue">登录</span></a>
+            </form>
+        </div>
+    {% endif %}
+<script>
+    $(function () {
+        $("#id_gender_0").attr("checked","True");
+        $("a span").hover(function () {
+            $(this).css({"color":"red"});
+        },function () {
+            $(this).css({"color":"blue"});
+		});
+    })
+</script>
+</body>
+</html>

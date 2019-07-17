@@ -20,11 +20,15 @@
 
 </div>
 <div id="wrapper">
+<a class="register" href="/register/"><span style="color: white">注册</span></a>
+<a class="login" href="/login/"><span style="color: white">登录</span></a>
   <header>
     <div class="headtop"></div>
     <div class="contenttop">
+
       <div class="logo f_l">刘敬的个人博客</div>
       <div class="search f_r">
+
         <form action="/search/" method="get" name="searchform" id="searchform">
           <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
           <input class="input_submit" value="搜索" type="submit">
@@ -61,6 +65,11 @@
 		},function(){
 			$(this).find('ul:first').css({visibility: "hidden"});
 		});
+		$("a span").hover(function () {
+            $(this).css({"color":"red"});
+        },function () {
+            $(this).css({"color":"white"});
+		});
 	});
 
 </SCRIPT>
@@ -81,5 +90,6 @@
     </div>
   </footer>
 </div>
+
 </body>
 </html>

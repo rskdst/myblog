@@ -15,14 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,re_path,include
-from myblog import views
+from myblog import views as mv
+from Userinfo import views as uv
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/',views.about),
-    path('index/', views.index),
-    path('listpic/',views.listpic),
+    path('about/',mv.about),
+    path('index/', mv.index),
+    path('listpic/',mv.listpic),
     re_path(r'^diary/',include("Diary.urls")),
     re_path(r'^article/',include("Article.urls")),
-    path('search/', views.search),
+    path('search/', mv.search),
     path('ckeditor/',include('ckeditor_uploader.urls')),
+    path('login/', uv.login),
+    path('register/', uv.register)
 ]

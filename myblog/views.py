@@ -43,3 +43,5 @@ def search(req):
     # print(data_list)
     return render(req,"search.html",{"data_list":data_list,"keyword":keyword})
 
+
+

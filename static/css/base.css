@@ -77,6 +77,23 @@ header {
 .headtop {
 	background: url(../images/topbg.jpg) repeat-x;
 	height: 28px;
+
+}
+.login{
+	font-size: 20px;
+	position: absolute;
+	width: 93%;
+	text-align: right;
+	padding-top: 50px;
+	font-family: Ώ¬Με;
+}
+.register{
+	font-size: 20px;
+	position: absolute;
+	width: 97%;
+	text-align: right;
+	padding-top: 50px;
+	font-family: Ώ¬Με;
 }
 .contenttop {
 	width: 1000px;
