@@ -4,6 +4,13 @@ from django.forms import widgets as wds
 from  django.forms import fields
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
+import hashlib
+def encrypt_password(password):
+    md5 = hashlib.md5()
+    md5.update(password.encode())
+    return md5.hexdigest()
+
+
 class RegisterForm(forms.Form):
     username = fields.CharField(label="用户名",strip=False,max_length=12,min_length=2,
 
@@ -18,12 +25,15 @@ class RegisterForm(forms.Form):
                                 )],
 
                             )
-    gender = fields.ChoiceField(label="性别",
+    gender = fields.ChoiceField(label="性别",required=False,
                                 choices=(
                                     ("男","男"),
                                     ("女","女")
                                 ),
-                                widget=wds.RadioSelect
+                                widget=wds.RadioSelect(attrs={
+
+                                }),
+
 
                             )
     password1 = fields.CharField(label="密码",strip=False,max_length=20,min_length=8,widget=forms.PasswordInput,
@@ -87,7 +97,8 @@ class LoginForm(forms.Form):
     def clean_password(self):
         try:
             password = UserInfo.objects.filter(username=self.cleaned_data["username"]).first().password
-            if self.cleaned_data["password"] == password:
+            real_password  = encrypt_password(self.cleaned_data["password"])
+            if real_password == password:
                 return self.cleaned_data["password"]
             else:
                 raise ValidationError("您输入的用户名或密码错误，请重新输入")

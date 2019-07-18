@@ -18,6 +18,7 @@ def diary(req):
             "data":data,
             "num_pages":num_pages,
             "page":page,
+            "req":req
         }
     )
 def diary_content(req,article_id):
@@ -25,7 +26,7 @@ def diary_content(req,article_id):
         data = models.StudyDiary.objects.filter(article_id=article_id).values("title","content","created_date")[0]
     else:
         data = models.Diary.objects.filter(article_id=article_id).values("title", "content", "created_date")[0]
-    return render(req,"diary_content.html",{"data":data})
+    return render(req,"diary_content.html",{"data":data,"req":req})
 
 def studydiary(req):
     current_page = int(req.GET.get("page", 1))
@@ -43,5 +44,6 @@ def studydiary(req):
             "data": data,
             "num_pages": num_pages,
             "page": page,
+            "req":req
         }
     )

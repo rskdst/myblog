@@ -28,7 +28,7 @@
                         <td>{{ form.password }}</td>
                     </tr>
                 </table>
-                <p style="margin-left: 60px">{{ error }}</p>
+                <p style="margin-left: 60px;color: red">{{ error }}</p>
                 <input style="margin-left: 12%" type="submit" value="登录">
                 <a style="margin-left: 30px" href="/register/"><span style="color: blue">注册</span></a>
             </form>
@@ -37,12 +37,12 @@
         <div style="margin-left: 40%;margin-top: 15%">
             <form method="post" action="/register/" novalidate>
                 {% csrf_token %}
-                <table >
+                <table class="valid">
                     {% for field in form %}
                     <tr>
                         <th>{{ field.label }}:</th>
-                        <td>{{ field }}</td>
-                        <td>{{ field.errors.0 }}</td>
+                        <td id="abc">{{ field }}</td>
+                        <td style="color: red">{{ field.errors.0 }}</td>
                     </tr>
                     {% endfor %}
                 </table>
@@ -53,12 +53,12 @@
     {% endif %}
 <script>
     $(function () {
-        $("#id_gender_0").attr("checked","True");
+        $("#id_gender_0").attr("checked", "True");
         $("a span").hover(function () {
-            $(this).css({"color":"red"});
-        },function () {
-            $(this).css({"color":"blue"});
-		});
+            $(this).css({"color": "red"});
+        }, function () {
+            $(this).css({"color": "blue"});
+        });
     })
 </script>
 </body>

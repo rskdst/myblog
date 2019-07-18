@@ -27,5 +27,8 @@ urlpatterns = [
     path('search/', mv.search),
     path('ckeditor/',include('ckeditor_uploader.urls')),
     path('login/', uv.login),
-    path('register/', uv.register)
+    path('register/', uv.register),
+    re_path(r'^leaveword/',include("Leaveword.urls")),
+    path('logout/', uv.logout),
+
 ]

@@ -7,6 +7,7 @@ def index(req):
     diary = Diary.objects.order_by("-update_date").values("title","description","article_id","update_date").first()
     study_diary = StudyDiary.objects.order_by("-update_date").values("title","description","article_id","update_date")[:2]
     article = Article.objects.order_by("-update_date").values("article_id","title","description","update_date","author__name")[:3]
+    print(req.session)
     return render(req,"index.html",locals())
 
 
@@ -41,7 +42,7 @@ def search(req):
         else:
             pass
     # print(data_list)
-    return render(req,"search.html",{"data_list":data_list,"keyword":keyword})
+    return render(req,"search.html",{"data_list":data_list,"keyword":keyword,"req":req})
 
 
 

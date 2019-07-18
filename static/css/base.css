@@ -79,16 +79,9 @@ header {
 	height: 28px;
 
 }
-.login{
-	font-size: 20px;
-	position: absolute;
-	width: 93%;
-	text-align: right;
-	padding-top: 50px;
-	font-family: ¿¬Ìå;
-}
-.register{
-	font-size: 20px;
+
+.login_register{
+	font-size: 18px;
 	position: absolute;
 	width: 97%;
 	text-align: right;

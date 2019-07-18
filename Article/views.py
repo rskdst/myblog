@@ -20,6 +20,7 @@ def article(req):
             "num_pages": num_pages,
             "page": page,
             "content_list": content_lst,
+            "req":req
         }
     )
     
@@ -31,6 +32,7 @@ def article_content(req,article_id):
         req,
         "article_content.html",
         {
-            "data":data
+            "data":data,
+            "req":req
         }
     )

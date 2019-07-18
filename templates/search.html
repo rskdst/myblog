@@ -29,8 +29,14 @@
 <div class="topnav">
 </div>
 <div id="wrapper">
-<a class="register" href="/register/"><span style="color: white">注册</span></a>
-<a class="login" href="/login/"><span style="color: white">登录</span></a>
+<div class="login_register" >
+    {% if req.session.username  %}
+        <p style="margin-right: 20px;color: white">欢迎:【{{ req.session.username }}】&nbsp;&nbsp;【<a style="color: white" href="/logout/">退出</a>】</p>
+    {% else %}
+        <a style="color: white" href="/login/">登录</a>
+        <a style="color: white" href="/register/">注册</a>
+    {% endif %}
+</div>
   <header>
     <div class="headtop"></div>
     <div class="contenttop">
@@ -59,7 +65,7 @@
               </ul>
             </li>
             <li><a href="/article/">技术文章</a> </li>
-            <li><a href="#">给我留言</a> </li>
+            <li><a href="/leaveword/">给我留言</a> </li>
           </ul>
         </div>
       </nav>
@@ -72,7 +78,7 @@
 		},function(){
 			$(this).find('ul:first').css({visibility: "hidden"});
 		});
-		$("a span").hover(function () {
+		$(".login_register a").hover(function () {
             $(this).css({"color":"red"});
         },function () {
             $(this).css({"color":"white"});
