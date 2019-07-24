@@ -5,14 +5,104 @@
 {% block link %}
     <link href="/static/css/base.css" rel="stylesheet">
     <link href="/static/css/main.css" rel="stylesheet">
+    <script src="/static/js/jquery.js"></script>
+{#    <script src="/static/js/vue.min.js"></script>#}
 {% endblock %}
+<style type="text/css">
+    .hr{
+        width: 80%;
+
+    }
+</style>
 {% block content %}
   <div class="con_content">
     <div class="about_box">
         <h2 class="nh1"><span>您现在的位置是：<a href="/index/" target="_blank">网站首页</a>>><a href="/leaveword/" target="_blank">给我留言</a></span><b>给我留言</b></h2>
-        <div><h1 style="font-size: 100px">这是一个留言界面</h1></div>
+        <div style="margin-top: 20px">
+            <textarea cols="80" name="msg" rows="5"></textarea>
+            {% csrf_token %}
+            <button type="submit">提交</button>
+        </div>
+        <div class="emoji">
+            <i></i>
+            <span>表情</span>
+        </div>
+        <hr style="margin-top: 20px;margin-bottom: 20px">
+        <div class="comment-list">
+        {% csrf_token %}
+            {% for message in data %}
+            <div>
+                <ul>
+                    <div class="userinfo"></div>
+                    <li>
+                        <div class="parent-comment">
+                            <p class="user" style="font-size: 20px">{{ message.user__username }}&nbsp;<span>留言:</span><span class="created_date" style="padding-left: 200px">时间:{{ message.created_date }}</span></p>
+                            <p class="content" style="font-size: 20px">{{ message.content }}</p>
+                            <a id="{{ message.message_id }}" class="reply" style="font-size: 20px"><span class="content_count" style="padding-left: 400px">回复({{ message.count }})</span></a>
+                        </div>
+                    </li>
+                    <hr>
+                    <div class="child-comment">
 
+                    </div>
+
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
     </div>
   </div>
   <div class="blank"></div>
+    <script>
+        $(function () {
+            $(".reply").toggle(function () {
+                var message_id = $(this).attr("id");
+                var csrf_token = $("input[name='csrfmiddlewaretoken']").val();
+                console.log(message_id,csrf_token)
+                $.ajax({
+                    url:"/leaveword/ajax/",
+                    type:"post",
+                    data:{
+                        "message_id":message_id,
+                        "csrfmiddlewaretoken":csrf_token
+                    },
+                    dataType:"json",
+                    success:function (arg) {
+                        console.log(arg);
+
+                        $(".parent-comment").find('a[id="'+arg.parent_id+'"]').after(arg.html)
+
+                    },
+                    error:function (arg) {
+                        console.log(arg)
+                    }
+                })
+            },function () {
+                var message_id = $(this).attr("id");
+                $('div[id="'+message_id+'"]').remove()
+                }
+            );
+              $("button").click(function () {
+                  var content = $("textarea").val();
+                  var username = $(".username span").text();
+                  var csrf_token = $("input[name='csrfmiddlewaretoken']").val();
+                  $.ajax({
+                      url:"/leaveword/ajax_submit/",
+                      type:"post",
+                      data:{
+                          "content":content,
+                          "csrfmiddlewaretoken":csrf_token,
+                          "username":username
+                        },
+                      success:function (arg) {
+                        window.location.href="/leaveword/"
+                    },
+                    error:function (arg) {
+                        console.log(arg)
+                    }
+                  })
+
+            })
+        })
+    </script>
 {% endblock %}

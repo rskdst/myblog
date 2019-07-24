@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     "ckeditor_uploader",
     "Leaveword",
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

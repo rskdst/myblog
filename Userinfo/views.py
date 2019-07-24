@@ -27,8 +27,8 @@ def register(req):
             UserInfo.objects.create(username=username,password=password,gender=gender,answer=answer)
             return redirect("/login/")
         else:
-            pass
-        return render(req,"register_login.html",locals())
+
+            return render(req,"register_login.html",locals())
 
 def login(req):
     url = "/login/"
@@ -50,7 +50,6 @@ def login(req):
             else:
                 error = form.errors["password"][0]
             return render(req,"register_login.html",locals())
-
 
 def logout(req):
     req.session.flush()

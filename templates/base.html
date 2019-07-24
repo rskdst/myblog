@@ -22,7 +22,7 @@
 <div id="wrapper">
 <div class="login_register" >
     {% if req.session.username  %}
-        <p style="margin-right: 20px;color: white">欢迎:【{{ req.session.username }}】&nbsp;&nbsp;【<a style="color: white" href="/logout/">退出</a>】</p>
+        <p class="username" style="margin-right: 20px;color: white">欢迎:【<span>{{ req.session.username }}</span>】&nbsp;&nbsp;【<a style="color: white" href="/logout/">退出</a>】</p>
     {% else %}
         <a style="color: white" href="/login/">登录</a>
         <a style="color: white" href="/register/">注册</a>

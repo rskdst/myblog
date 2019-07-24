@@ -64,14 +64,11 @@ class RegisterForm(forms.Form):
                 raise ValidationError("您输入的密码不一致，请重新输入")
             return self.cleaned_data
     def clean_username(self):
-        username_tuple = UserInfo.objects.values_list("username").first()
-        try:
-            if self.cleaned_data["username"] in username_tuple:
+            if UserInfo.objects.filter(username=self.cleaned_data["username"]):
                 raise ValidationError("您输入的用户名已存在")
             else:
                 return self.cleaned_data["username"]
-        except:
-            return self.cleaned_data["username"]
+
 
 
 class LoginForm(forms.Form):
@@ -90,8 +87,6 @@ class LoginForm(forms.Form):
             username = UserInfo.objects.get(username=self.cleaned_data["username"])
             if username:
                 return self.cleaned_data["username"]
-            else:
-                raise ValidationError("您输入的用户名或密码错误，请重新输入")
         except:
             raise ValidationError("您输入的用户名或密码错误，请重新输入")
     def clean_password(self):
@@ -100,7 +95,5 @@ class LoginForm(forms.Form):
             real_password  = encrypt_password(self.cleaned_data["password"])
             if real_password == password:
                 return self.cleaned_data["password"]
-            else:
-                raise ValidationError("您输入的用户名或密码错误，请重新输入")
         except:
             raise ValidationError("您输入的用户名或密码错误，请重新输入")
